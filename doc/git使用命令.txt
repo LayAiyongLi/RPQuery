@@ -1,0 +1,21 @@
+远程仓库： git@github.com:DanielCheung0523/RPQuery.git
+
+1、本地添加接收git远程库的文件夹 c:\githup
+
+2、初始化本地文件夹
+	git config --global user.name "daniel"
+	git config --global user.email "522894752@qq.com"
+	
+3、上传SSH Key，否则第4步报Permission denied (publickey)
+	ssh-keygen -t rsa -C "daniel       522894752@qq.com"		// 连续输入3次回车
+	复制生成的sshkey文件的所有内容(去除空格和换行)
+	登录github，Setting中增加SSHkey，粘贴复制的内容
+	
+4、复制远程仓库
+	git clone git@github.com:DanielCheung0523/RPQuery.git		// 此时githup目录下生成RPQuery的目录
+	
+5、将代码拷贝至RPQuery目录中进行提交
+	cd RPQuery
+	git status										// 查看文件状态
+	git add *											// 加入文件
+	git commit -m "初始Yaf框架"		// 提交
