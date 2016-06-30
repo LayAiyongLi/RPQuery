@@ -18,4 +18,14 @@
 	cd RPQuery
 	git status										// 查看文件状态
 	git add *											// 加入文件
-	git commit -m "初始Yaf框架"		// 提交
+	git commit -m "初始Yaf框架"		// 提交到本地库
+	git remote										// 查看提交项目的名称，显示origin
+	git push origin								// 上传到git远程
+	
+6、登录githup查看文件
+
+7、提交变更的文件
+	git diff [filename]						// 查看变更处
+	git add [filename]						// 提交变更文件
+	git commit -m "修改文件"
+	git push origin		
