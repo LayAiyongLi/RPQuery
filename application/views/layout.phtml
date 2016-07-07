@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入jQuery -->
+    <script src="/js/jquery-3.0.0.min.js"></script>
+
+    <!-- bootstrap样式和js -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- 动态附加CSS和js -->
+    <?php if(isset($this->layout['append_css'])) : ?>
+        <?php if(is_array($this->layout['append_css'])) : ?>
+            <?php foreach ($this->layout['append_css'] as $appendcss) : ?>
+                <link rel="stylesheet" href="<?php echo $appendcss; ?>">
+            <?php endforeach; ?>
+        <?php else : ?>
+            <link rel="stylesheet" href="<?php echo $this->layout['append_css']; ?>" ?>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if(isset($this->layout['append_js'])) : ?>
+        <?php if(is_array($this->layout['append_js'])) : ?>
+            <?php foreach ($this->layout['append_js'] as $appendjs) : ?>
+                <script src="<?php echo $appendjs; ?>"></script>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <script src="<?php echo $this->layout['append_js']; ?>"></script>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <!-- 附加子标题 -->
+    <title>精准人品查询站<?php echo empty($this->layout['sub_title']) ? '' : '-'.$this->layout['sub_title']; ?>></title>
+</head>
+<body>
+    ffff
+</body>
+</html>

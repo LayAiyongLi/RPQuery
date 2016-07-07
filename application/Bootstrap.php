@@ -20,9 +20,10 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
 	
 
 	public function _initPlugin(Yaf_Dispatcher $dispatcher) {
-		//注册一个插件
-		$objSamplePlugin = new SamplePlugin();
-		$dispatcher->registerPlugin($objSamplePlugin);
+		// 注册layout插件
+		$layout = new LayoutPlugin('layout.phtml');
+		Yaf_Registry::set('layout', $layout);
+		$dispatcher->registerPlugin($layout);
 	}
 
 	public function _initRoute(Yaf_Dispatcher $dispatcher) {
