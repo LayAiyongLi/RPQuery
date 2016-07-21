@@ -17,6 +17,6 @@ class IndexController extends BaseController {
      * 对于如下的例子, 当访问http://yourhost/RPQuery/index/index/index/name/root 的时候, 你就会发现不同
      */
 	public function indexAction() {
-
+		$this->_layout->sub_title = '测试副标题';
 	}
 }

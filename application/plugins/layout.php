@@ -29,27 +29,14 @@ class LayoutPlugin extends Yaf_Plugin_Abstract{
     }
 
     public function postDispatch ( Yaf_Request_Abstract $request , Yaf_Response_Abstract $response ){
+        // 回复前，加载layout，需要排除掉API的访问
+        $body = $response->getBody();
+        $response->clearBody();
+        $layout = new Yaf_View_Simple($this->_layoutDir);
+        $layout->assign('content', $body);
+        $layout->assign('layout', $this->_layoutVars);
 
-        /*
-        if( strtolower($request->module) == 'admin' ) {
-
-            if( !in_array(strtolower($request->controller),  array('task', 'invite', 'my', 'more', 'visit'))){
-                # get the body of the response
-                $body = $response->getBody();
-
-                # clear existing response
-                $response->clearBody();
-
-                # wrap it in the layout
-                $layout = new Yaf_View_Simple($this->_layoutDir);
-                $layout->content = $body;
-                $layout->assign('layout', $this->_layoutVars);
-
-                # set the response to use the wrapped version of the content
-                $response->setBody($layout->render($this->_layoutFile));
-            }
-        }*/
-
+        $response->setBody($layout->render($this->_layoutFile));
     }
 
     public function preDispatch ( Yaf_Request_Abstract $request , Yaf_Response_Abstract $response ){

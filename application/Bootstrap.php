@@ -38,4 +38,13 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
 	public function _initView(Yaf_Dispatcher $dispatcher){
 		//在这里注册自己的view控制器，例如smarty,firekylin
 	}
+
+	/**
+	 * 注册Zend_Db
+	 */
+	public function _initDBAdapter(Yaf_Dispatcher $dispatcher){
+		$config = Yaf_Registry::get('config');
+		$dbAdapter = new Zend\Db\Adapter\Adapter($config->database->params);
+		Yaf_Registry::set('DbAdapter', $dbAdapter);
+	}
 }
